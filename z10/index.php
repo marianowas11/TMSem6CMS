@@ -29,6 +29,7 @@ if ($_SESSION['ok'] == 1){
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <title>Jackowski</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <link rel="stylesheet" href="main.css">
+    <script src="/z10/ckeditor/ckeditor.js"></script>
 </head>
 
 
@@ -65,28 +66,31 @@ echo  "<form method='post' action='admin.php'>Login:<input type='text' name='use
           include 'dbConn.php';
         if($isadmin==true) 
         {
-         echo   "<form id='editor1' action='save.php' method='post' >";
-         echo "<input type='hidden' name='url' value= '".$str2."'> ";
-         echo "<textarea name='editor1' id='editor1' rows='10' cols='80'>";
-
-
-              
-          
-                  $output = '';  
-                  $sql = "SELECT text FROM textAbout ORDER BY id DESC";  
-                  $query = mysqli_query($conn,$sql);
-                  $result = mysqli_fetch_assoc($query);
-                  echo $result['text'];
-               
-                  echo " </textarea>";
-                  echo " <p>";
-                  echo "    <input type='submit' value='Submit'>";
-                  echo " </p>";
-                  echo " <script>";
-
-                  echo "CKEDITOR.replace( 'editor1' );";
-                  echo "</script>";
-                  echo " </form>";
+            echo   "<form id='edit' action='save.php' method='post' >";
+            echo "<input type='hidden' name='url' value= '".$str2."'> ";
+            echo "<textarea name='editor1' id='editor1' rows='10' cols='80'>";
+   
+   
+                 
+             
+                     $output = '';  
+                     $sql = "SELECT text FROM textOferta ORDER BY id DESC";  
+                     $query = mysqli_query($conn,$sql);
+                     $result = mysqli_fetch_assoc($query);
+                     echo $result['text'];
+                  
+                     echo " </textarea>";
+   
+                     echo " <script>";
+   
+                     echo "CKEDITOR.replace( 'editor1' );";
+                     echo "</script>";
+                     
+                     echo " </form>";
+                     echo " <p>";
+                     echo "   <button type='submit' form='edit' >Submit</button>";
+                    
+                     echo " </p>";
     }
    
     else
