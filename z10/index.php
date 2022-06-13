@@ -8,7 +8,7 @@ if(!isset($_SESSION ['ok'])){
 }
 $_SESSION ['ok']= false;
 $directory = $_SERVER['REQUEST_URI'];
-    $dirr = strstr($directory, "z9/");
+    $dirr = strstr($directory, "z10/");
     $str2 = substr($dirr, 3);
 
     $_SESSION ['link'] = $str2;
@@ -20,7 +20,7 @@ if ($_SESSION['ok'] == 1){
     echo 'alert("Edycja pomyślna")';
     echo '</script>';
 }
-
+header('Location: http://marianowas11.beep.pl/z10/about.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,7 +66,7 @@ echo  "<form method='post' action='admin.php'>Login:<input type='text' name='use
           include 'dbConn.php';
         if($isadmin==true) 
         {
-            echo   "<form id='edit' action='save.php' method='post' >";
+            echo   "<form id='edit' action='saveAbout.php' method='post' >";
             echo "<input type='hidden' name='url' value= '".$str2."'> ";
             echo "<textarea name='editor1' id='editor1' rows='10' cols='80'>";
    
@@ -74,7 +74,7 @@ echo  "<form method='post' action='admin.php'>Login:<input type='text' name='use
                  
              
                      $output = '';  
-                     $sql = "SELECT text FROM textOferta ORDER BY id DESC";  
+                     $sql = "SELECT text FROM textAbout ORDER BY id DESC";  
                      $query = mysqli_query($conn,$sql);
                      $result = mysqli_fetch_assoc($query);
                      echo $result['text'];

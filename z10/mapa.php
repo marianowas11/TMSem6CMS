@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $directory = $_SERVER['REQUEST_URI'];
-    $dirr = strstr($directory, "z9/");
+    $dirr = strstr($directory, "z10");
     $str2 = substr($dirr, 3);
     $_SESSION ['link'] = $str2;
 $directory = $_SESSION ['link'];

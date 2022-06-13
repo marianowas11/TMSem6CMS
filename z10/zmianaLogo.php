@@ -3,7 +3,7 @@ session_start();
 $_SESSION ['admin'] = false;
 $_SESSION ['ok']= false;
 $directory = $_SERVER['REQUEST_URI'];
-    $dirr = strstr($directory, "z9/");
+    $dirr = strstr($directory, "z10");
     $str2 = substr($dirr, 3);
 
     $_SESSION ['link'] = $str2;

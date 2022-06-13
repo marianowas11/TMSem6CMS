@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $directory = $_SERVER['REQUEST_URI'];
-    $dirr = strstr($directory, "z9/");
+    $dirr = strstr($directory, "z10");
     $str2 = substr($dirr, 3);
 
     $_SESSION ['link'] = $str2;
@@ -64,7 +64,7 @@ if ($_SESSION['ok'] == 1){
           include 'dbConn.php';
         if($isadmin==true) 
         {
-            echo   "<form id='edit' action='save.php' method='post' >";
+            echo   "<form id='edit' action='saveKontakt.php' method='post' >";
             echo "<input type='hidden' name='url' value= '".$str2."'> ";
             echo "<textarea name='editor1' id='editor1' rows='10' cols='80'>";
    
@@ -72,7 +72,7 @@ if ($_SESSION['ok'] == 1){
                  
              
                      $output = '';  
-                     $sql = "SELECT text FROM textOferta ORDER BY id DESC";  
+                     $sql = "SELECT text FROM textKontakt ORDER BY id DESC";  
                      $query = mysqli_query($conn,$sql);
                      $result = mysqli_fetch_assoc($query);
                      echo $result['text'];

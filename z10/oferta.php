@@ -3,7 +3,7 @@ session_start();
 
 
 $directory = $_SERVER['REQUEST_URI'];
-    $dirr = strstr($directory, "z9/");
+    $dirr = strstr($directory, "z10");
     $str2 = substr($dirr, 3);
 
     $_SESSION ['link'] = $str2;
@@ -61,7 +61,7 @@ if ($_SESSION['ok'] == 1){
           include 'dbConn.php';
         if($isadmin==true) 
         {
-            echo   "<form id='edit' action='save.php' method='post' >";
+            echo   "<form id='edit' action='saveOferta.php' method='post' >";
             echo "<input type='hidden' name='url' value= '".$str2."'> ";
             echo "<textarea name='editor1' id='editor1' rows='10' cols='80'>";
    
